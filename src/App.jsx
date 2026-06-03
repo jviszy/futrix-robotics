@@ -18,7 +18,6 @@ import {
   Newspaper,
   Globe2,
   ShieldCheck,
-  Car,
   Wrench,
   Target,
 } from "lucide-react";
@@ -27,18 +26,17 @@ import { motion } from "framer-motion";
 import "./App.css";
 
 import logo from "./assets/futrix-logo.jpeg";
-import heroImage from "./assets/hero-racing.png";
-import heroRacing from "./assets/hero-racing.png";
+import heroImage from "./assets/robot-arm-hero.png";
 import studentsBuilding from "./assets/students-building.png";
 import ftcRobot from "./assets/ftc-robot.png";
 import ftcRobotArm from "./assets/ftc-robot-arm.png";
-import robotChassis from "./assets/robot-chasis.jpeg";
-import surveillanceRobot from "./assets/surveillance-robot.png";
+import heroRacing from "./assets/hero-racing.png";
 import battleBot from "./assets/battle-bot.png";
-
+import surveillanceRobot from "./assets/surveillance-robot.png";
+import robotChassis from "./assets/robot-chasis.jpeg";
 import winners from "./assets/winners.jpeg";
 import teamPhoto from "./assets/team-photo.jpeg";
-import rcChampionship from "./assets/rc-championship.png";
+
 function App() {
   const [open, setOpen] = useState(false);
 
@@ -88,7 +86,7 @@ function App() {
 
       <section className="hero" id="home">
         <div className="hero-bg">
-          <img src={heroImage} alt="Futrix STEM RC Racing" />
+          <img src={heroImage} alt="Futrix robotics arm" />
         </div>
 
         <div className="hero-overlay"></div>
@@ -159,7 +157,7 @@ function App() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <StoryCard number="2019" title="FME ICT Week Champion" text="Futrix students continued to compete across computer assembly, scratch programming, web design, and robot games." />
+            <StoryCard number="2019" title="FME ICT Week Champion" text="Futrix students competed across computer assembly, Scratch programming, web design, and robot games." />
           </Reveal>
 
           <Reveal delay={0.3}>
