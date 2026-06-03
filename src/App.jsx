@@ -15,14 +15,30 @@ import {
   BrainCircuit,
   GraduationCap,
   Handshake,
-  Images,
   Newspaper,
+  Globe2,
+  ShieldCheck,
+  Car,
+  Wrench,
+  Target,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./App.css";
-import logo from "./assets/futrix-logo.jpeg";
 
+import logo from "./assets/futrix-logo.jpeg";
+import heroImage from "./assets/hero-racing.png";
+import heroRacing from "./assets/hero-racing.png";
+import studentsBuilding from "./assets/students-building.png";
+import ftcRobot from "./assets/ftc-robot.png";
+import ftcRobotArm from "./assets/ftc-robot-arm.png";
+import robotChassis from "./assets/robot-chasis.jpeg";
+import surveillanceRobot from "./assets/surveillance-robot.png";
+import battleBot from "./assets/battle-bot.png";
+
+import winners from "./assets/winners.jpeg";
+import teamPhoto from "./assets/team-photo.jpeg";
+import rcChampionship from "./assets/rc-championship.png";
 function App() {
   const [open, setOpen] = useState(false);
 
@@ -52,7 +68,7 @@ function App() {
         <div className="brand" onClick={() => scrollToSection("home")}>
           <img src={logo} alt="Futrix Robotics Logo" />
           <div>
-            <span>Futrix</span>
+            <span>FuTriX</span>
             <small>Robotics</small>
           </div>
         </div>
@@ -71,6 +87,12 @@ function App() {
       </header>
 
       <section className="hero" id="home">
+        <div className="hero-bg">
+          <img src={heroImage} alt="Futrix STEM RC Racing" />
+        </div>
+
+        <div className="hero-overlay"></div>
+
         <div className="hero-grid">
           <motion.div
             className="hero-content"
@@ -84,14 +106,13 @@ function App() {
             </p>
 
             <h1>
-              Building Africa’s Next Generation of{" "}
-              <span>Innovators</span>
+              Engineering Africa’s Next Generation of <span>Innovators</span>
             </h1>
 
             <p className="hero-text">
-              Futrix Robotics empowers students, schools, educators, and
-              communities through hands-on robotics, coding, AI, drone
-              technology, engineering design, and innovation challenges.
+              FuTriX Robotics empowers students, schools, educators, and
+              communities through robotics, coding, AI, engineering design,
+              drone technology, STEM racing, and innovation challenges.
             </p>
 
             <div className="hero-buttons">
@@ -99,113 +120,87 @@ function App() {
                 Enroll a Student <ArrowRight size={18} />
               </button>
 
-              <button
-                onClick={() => scrollToSection("partnerships")}
-                className="outline"
-              >
+              <button onClick={() => scrollToSection("partnerships")} className="outline">
                 Partner With Us
               </button>
 
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="outline"
-              >
+              <button onClick={() => scrollToSection("contact")} className="outline">
                 Contact Us
               </button>
             </div>
 
             <div className="hero-stats">
               <div>
-                <strong>STEM</strong>
-                <span>Education</span>
+                <strong>Build</strong>
+                <span>Hands-on robotics</span>
               </div>
               <div>
-                <strong>AI</strong>
-                <span>Learning</span>
+                <strong>Code</strong>
+                <span>AI & automation</span>
               </div>
               <div>
-                <strong>Robotics</strong>
-                <span>Competitions</span>
+                <strong>Compete</strong>
+                <span>STEM challenges</span>
               </div>
             </div>
           </motion.div>
-
-          <motion.div
-            className="robot-stage"
-            initial={{ opacity: 0, scale: 0.85, rotateY: -20 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 1.1, delay: 0.2 }}
-          >
-            <div className="orbit orbit-one"></div>
-            <div className="orbit orbit-two"></div>
-
-            <motion.div
-              className="robot-core"
-              animate={{ y: [0, -18, 0], rotate: [0, 2, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Bot size={150} />
-              <div className="robot-light"></div>
-            </motion.div>
-
-            <div className="floating-chip chip-one">
-              <Cpu size={22} />
-              Robotics
-            </div>
-
-            <div className="floating-chip chip-two">
-              <BrainCircuit size={22} />
-              AI Labs
-            </div>
-
-            <div className="floating-chip chip-three">
-              <Rocket size={22} />
-              Innovation
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="scroll-indicator">
-          <span></span>
         </div>
       </section>
 
-      <StorySection />
-
-      <section id="about" className="section about-section">
+      <section className="story-section">
         <Reveal>
-          <p className="section-kicker">Who We Are</p>
-          <h2>About Futrix Robotics</h2>
-          <p>
-            Futrix Robotics is a STEM and technology education organization
-            dedicated to developing future innovators, engineers, inventors, and
-            technology leaders through practical, hands-on learning experiences.
-          </p>
+          <p className="section-kicker">The Futrix Journey</p>
+          <h2>From Curiosity to National Recognition</h2>
         </Reveal>
 
-        <div className="about-cards">
+        <div className="story-grid">
           <Reveal delay={0.1}>
-            <InfoCard
-              icon={<Rocket />}
-              title="Our Mission"
-              text="To make robotics, STEM, AI, and emerging technologies accessible to students and schools through practical education."
-            />
+            <StoryCard number="2018" title="UNESCO ICT Winner" text="Students trained through the Futrix journey began gaining recognition in national technology competitions." />
           </Reveal>
 
           <Reveal delay={0.2}>
-            <InfoCard
-              icon={<Sparkles />}
-              title="Our Vision"
-              text="To raise a generation of African innovators who can solve real-world problems with technology."
-            />
+            <StoryCard number="2019" title="FME ICT Week Champion" text="Futrix students continued to compete across computer assembly, scratch programming, web design, and robot games." />
           </Reveal>
 
           <Reveal delay={0.3}>
-            <InfoCard
-              icon={<GraduationCap />}
-              title="Why It Matters"
-              text="Robotics education builds creativity, problem-solving, engineering thinking, collaboration, and digital confidence."
-            />
+            <StoryCard number="2022" title="FTC & FLL Awards" text="The team expanded into national robotics competitions, building stronger engineering and innovation capacity." />
+          </Reveal>
+
+          <Reveal delay={0.4}>
+            <StoryCard number="2026" title="Global Stage" text="Futrix-trained teams earned international recognition and prepared to represent Nigeria globally." />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="stats-section">
+        <Stat value="1000+" label="Students Inspired" />
+        <Stat value="20+" label="Schools Reached" />
+        <Stat value="15+" label="Awards & Recognitions" />
+        <Stat value="7+" label="Years of Impact" />
+      </section>
+
+      <section id="about" className="section about-section">
+        <div className="split">
+          <Reveal>
+            <p className="section-kicker">Who We Are</p>
+            <h2>Building Future-Ready Technology Leaders</h2>
+            <p>
+              FuTriX Robotics is a STEM and technology education organization
+              dedicated to developing future innovators, engineers, inventors,
+              and technology leaders through practical, hands-on learning
+              experiences.
+            </p>
+
+            <div className="mini-grid">
+              <InfoCard icon={<Rocket />} title="Mission" text="Make robotics, STEM, AI, and emerging technologies accessible through practical education." />
+              <InfoCard icon={<GraduationCap />} title="Learning" text="Students learn by building, testing, improving, collaborating, and competing." />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="image-frame">
+              <img src={studentsBuilding} alt="Students building robot" />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -213,201 +208,143 @@ function App() {
       <section id="programs" className="section dark">
         <Reveal>
           <p className="section-kicker">Learning Pathways</p>
-          <h2>Our Programs</h2>
+          <h2>Programs Designed for Real-World Innovation</h2>
           <p>
-            From school programs to private training, weekend classes, coding,
-            AI, drone technology, and 3D design, Futrix Robotics creates
-            practical learning experiences for young innovators.
+            From school robotics to private training, weekend classes, AI,
+            drone technology, coding, 3D design, and teacher training, Futrix
+            creates practical learning experiences for young innovators.
           </p>
         </Reveal>
 
-        <div className="program-grid">
-          <Reveal delay={0.1}>
-            <ProgramCard
-              icon={<Bot />}
-              title="STEM Robotics for Schools"
-              items={[
-                "Primary School Program",
-                "Secondary School Program",
-                "Private Training Program",
-                "Weekend Training Program",
-              ]}
-            />
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <ProgramCard
-              icon={<Code />}
-              title="Coding & AI Classes"
-              items={[
-                "Coding fundamentals",
-                "Artificial Intelligence",
-                "Digital literacy",
-                "Problem-solving skills",
-              ]}
-            />
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <ProgramCard
-              icon={<Cpu />}
-              title="Emerging Technology"
-              items={[
-                "Drone Technology",
-                "3D Printing & Design",
-                "Engineering Design",
-                "Real-world applications",
-              ]}
-            />
-          </Reveal>
-
-          <Reveal delay={0.4}>
-            <ProgramCard
-              icon={<Users />}
-              title="Teacher Training"
-              items={[
-                "STEM curriculum implementation",
-                "Robotics facilitation",
-                "Classroom innovation",
-                "Practical teaching support",
-              ]}
-            />
-          </Reveal>
+        <div className="program-grid image-programs">
+          <ImageProgram image={ftcRobot} icon={<Bot />} title="STEM Robotics for Schools" text="Primary, secondary, private, and weekend robotics programs." />
+          <ImageProgram image={ftcRobotArm} icon={<Cpu />} title="FTC Robotics Engineering" text="Competition-ready mechanical design, sensors, lift systems, and control." />
+          <ImageProgram image={robotChassis} icon={<Code />} title="Coding, AI & Automation" text="Coding fundamentals, AI learning, IoT, and digital technology skills." />
+          <ImageProgram image={surveillanceRobot} icon={<BrainCircuit />} title="Innovation & R&D" text="Students explore smart systems, surveillance robotics, and applied engineering." />
         </div>
       </section>
 
       <section id="competitions" className="section competitions-section">
         <Reveal>
-          <p className="section-kicker">Challenges & Tournaments</p>
-          <h2>Competitions</h2>
+          <p className="section-kicker">Build. Race. Compete. Win.</p>
+          <h2>Robotics Competitions & STEM Challenges</h2>
           <p>
-            Futrix Robotics prepares students to compete, collaborate, build,
-            test, and showcase their creativity through local and international
-            robotics competitions.
+            Futrix prepares students to compete, collaborate, test, and showcase
+            creativity through robotics championships, STEM racing, battle-bot
+            engineering, and national innovation challenges.
           </p>
         </Reveal>
 
-        <div className="timeline">
-          <Reveal delay={0.1}>
-            <TimelineItem
-              title="East Africa Open Robotics Championship Uganda 2026"
-              text="Competition overview, categories, rules, registration, and preparation support."
-            />
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <TimelineItem
-              title="National Robotics Championship"
-              text="Previous winners, gallery, results, awards, and student achievement stories."
-            />
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <TimelineItem
-              title="RC Car Racing & 4x4 Challenge"
-              text="Track design, competition format, team registration, and live challenge experience."
-            />
-          </Reveal>
+        <div className="competition-showcase">
+          <ShowcaseCard image={heroRacing} title="STEM RC Racing" text="Students design, build, tune, code, test, race, and optimize RC robots for performance." />
+          <ShowcaseCard image={battleBot} title="Battle-Bot Engineering" text="Built for strength, strategy, control, durability, and competitive engineering." />
         </div>
       </section>
 
-      <section id="innovation" className="section dark lab-section">
+      <section id="innovation" className="section dark">
         <Reveal>
-          <p className="section-kicker">Build. Test. Improve.</p>
-          <h2>Innovation Lab</h2>
-          <p>
-            A creative space where students move from ideas to prototypes using
-            robotics kits, AI tools, drones, 3D design, sensors, electronics,
-            and engineering thinking.
-          </p>
+          <p className="section-kicker">Innovation Lab</p>
+          <h2>Where Ideas Become Working Robots</h2>
         </Reveal>
 
-        <div className="lab-visual">
-          <div className="lab-card large">
-            <BrainCircuit size={64} />
-            <h3>AI + Robotics</h3>
+        <div className="lab-showcase">
+          <div className="lab-copy">
+            <h3>Hands-on technology, not theory alone.</h3>
+            <p>
+              Students work with robotics kits, electronics, sensors, AI tools,
+              chassis platforms, mechanical systems, drones, 3D design, and
+              engineering thinking.
+            </p>
+
+            <div className="lab-points">
+              <span><Wrench /> Build</span>
+              <span><Code /> Program</span>
+              <span><Target /> Test</span>
+              <span><Rocket /> Improve</span>
+            </div>
           </div>
-          <div className="lab-card">
-            <Cpu size={42} />
-            <h3>Electronics</h3>
-          </div>
-          <div className="lab-card">
-            <Rocket size={42} />
-            <h3>Prototyping</h3>
+
+          <div className="lab-images">
+            <img src={ftcRobotArm} alt="FTC robot arm" />
+            <img src={surveillanceRobot} alt="Futrix surveillance robot" />
           </div>
         </div>
       </section>
 
       <section id="gallery" className="section">
         <Reveal>
-          <p className="section-kicker">Student Projects</p>
-          <h2>Projects Gallery</h2>
-          <p>
-            This section will showcase workshop photos, competition videos,
-            student-built robots, awards, experiments, and project descriptions.
-          </p>
+          <p className="section-kicker">Gallery</p>
+          <h2>Real Projects. Real Students. Real Impact.</h2>
         </Reveal>
 
-        <div className="gallery-grid">
-          {["Workshops", "Robotics Projects", "Competitions", "Awards"].map(
-            (item, index) => (
-              <Reveal key={item} delay={index * 0.1}>
-                <div className="gallery-card">
-                  <Images size={40} />
-                  <h3>{item}</h3>
-                </div>
-              </Reveal>
-            )
-          )}
+        <div className="real-gallery">
+          <GalleryItem image={studentsBuilding} title="Workshop Sessions" />
+          <GalleryItem image={teamPhoto} title="National Competitions" />
+          <GalleryItem image={winners} title="Student Winners" />
+          <GalleryItem image={ftcRobot} title="FTC Robotics" />
+          <GalleryItem image={battleBot} title="Battle Bots" />
+          <GalleryItem image={surveillanceRobot} title="Product Innovation" />
         </div>
       </section>
 
       <section id="partnerships" className="section dark">
         <Reveal>
-          <p className="section-kicker">Work With Us</p>
-          <h2>Partnerships</h2>
+          <p className="section-kicker">Partnerships</p>
+          <h2>Bring Robotics and STEM to Your School</h2>
           <p>
-            Futrix Robotics partners with schools, government agencies, NGOs,
-            corporate sponsors, and individuals to expand access to robotics and
-            STEM education across communities.
+            Futrix partners with schools, government agencies, NGOs, sponsors,
+            and individuals to expand access to robotics and future-ready STEM
+            education.
           </p>
         </Reveal>
 
         <div className="partner-strip">
           <div><Handshake /> Schools</div>
-          <div><Handshake /> NGOs</div>
-          <div><Handshake /> Sponsors</div>
-          <div><Handshake /> Government</div>
-          <div><Handshake /> Individuals</div>
+          <div><ShieldCheck /> Government</div>
+          <div><Users /> NGOs</div>
+          <div><Trophy /> Sponsors</div>
+          <div><BrainCircuit /> Innovation Partners</div>
         </div>
       </section>
 
       <section id="news" className="section">
         <Reveal>
-          <p className="section-kicker">Latest Updates</p>
-          <h2>News & Events</h2>
-          <p>
-            Updates on workshops, competitions, partnerships, student
-            achievements, robotics events, and upcoming training opportunities.
-          </p>
+          <p className="section-kicker">News & Events</p>
+          <h2>Latest Updates From Futrix Robotics</h2>
         </Reveal>
 
         <div className="news-card">
           <Newspaper size={44} />
           <div>
-            <h3>Upcoming Futrix Robotics updates will appear here.</h3>
+            <h3>Competition updates, workshops, student achievements, and training announcements will appear here.</h3>
             <p>
-              Add blog posts, event announcements, competition results, and
-              student success stories later.
+              This section can later become a full news page with articles,
+              event updates, and media coverage.
             </p>
           </div>
         </div>
       </section>
 
+      <section className="cta-section">
+        <Reveal>
+          <h2>Ready to Join Futrix Robotics?</h2>
+          <p>
+            Register a student, bring Futrix to your school, or partner with us
+            to build Africa’s next generation of innovators.
+          </p>
+
+          <div className="hero-buttons center">
+            <button onClick={() => scrollToSection("contact")}>Register a Student</button>
+            <button onClick={() => scrollToSection("contact")} className="outline">Register Your School</button>
+            <button onClick={() => scrollToSection("partnerships")} className="outline">Become a Partner</button>
+          </div>
+        </Reveal>
+      </section>
+
       <section id="contact" className="section contact">
         <Reveal>
-          <p className="section-kicker">Start the Conversation</p>
-          <h2>Contact Futrix Robotics</h2>
+          <p className="section-kicker">Contact</p>
+          <h2>Start the Conversation</h2>
           <p>
             Register your school, enroll a student, partner with Futrix, or ask
             about robotics training and competitions.
@@ -415,28 +352,20 @@ function App() {
         </Reveal>
 
         <div className="contact-grid">
-          <div className="contact-card">
-            <MapPin />
-            <h3>Office Address</h3>
-            <p>Utako, Abuja</p>
-          </div>
-
-          <div className="contact-card">
-            <Phone />
-            <h3>Phone</h3>
-            <p>09076439070</p>
-          </div>
-
-          <div className="contact-card">
-            <Mail />
-            <h3>Email</h3>
-            <p>info@FuTriXRobotics.com.ng</p>
-          </div>
+          <ContactCard icon={<MapPin />} title="Office Address" text="Utako FCT Abuja" />
+          <ContactCard icon={<Phone />} title="Phone" text="09076439070" />
+          <ContactCard icon={<Mail />} title="Email" text="info@FuTriXRobotics.com.ng" />
         </div>
       </section>
 
-      <footer>
-        <img src={logo} alt="Futrix Robotics Logo" />
+      <footer className="tech-footer">
+        <div className="footer-rail">
+          <div><MapPin /><span>Utako FCT Abuja</span></div>
+          <div><Phone /><span>09076439070</span></div>
+          <div><Mail /><span>info@FuTriXRobotics.com.ng</span></div>
+          <div><Globe2 /><span>FuTriXRobotics.com.ng</span></div>
+        </div>
+
         <p>© 2026 Futrix Robotics. Future Technology in Action.</p>
       </footer>
     </div>
@@ -456,6 +385,25 @@ function Reveal({ children, delay = 0 }) {
   );
 }
 
+function StoryCard({ number, title, text }) {
+  return (
+    <div className="story-card">
+      <span>{number}</span>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  );
+}
+
+function Stat({ value, label }) {
+  return (
+    <div className="stat-card">
+      <strong>{value}</strong>
+      <span>{label}</span>
+    </div>
+  );
+}
+
 function InfoCard({ icon, title, text }) {
   return (
     <div className="info-card">
@@ -466,24 +414,23 @@ function InfoCard({ icon, title, text }) {
   );
 }
 
-function ProgramCard({ icon, title, items }) {
+function ImageProgram({ image, icon, title, text }) {
   return (
-    <div className="program-card">
-      <div className="program-icon">{icon}</div>
-      <h3>{title}</h3>
-      <ul>
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
+    <div className="image-program-card">
+      <img src={image} alt={title} />
+      <div>
+        <div className="program-icon">{icon}</div>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
     </div>
   );
 }
 
-function TimelineItem({ title, text }) {
+function ShowcaseCard({ image, title, text }) {
   return (
-    <div className="timeline-item">
-      <span></span>
+    <div className="showcase-card">
+      <img src={image} alt={title} />
       <div>
         <h3>{title}</h3>
         <p>{text}</p>
@@ -492,60 +439,22 @@ function TimelineItem({ title, text }) {
   );
 }
 
-function StorySection() {
+function GalleryItem({ image, title }) {
   return (
-    <section className="story-section">
-      <Reveal>
-        <p className="section-kicker">The Futrix Story</p>
-        <h2>From Curiosity to Creation</h2>
-      </Reveal>
+    <div className="gallery-item">
+      <img src={image} alt={title} />
+      <div>{title}</div>
+    </div>
+  );
+}
 
-      <div className="story-grid">
-        <Reveal delay={0.1}>
-          <div className="story-card">
-            <span>01</span>
-            <h3>Discover</h3>
-            <p>
-              Students are introduced to robotics, coding, AI, and engineering
-              through exciting real-world examples.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="story-card">
-            <span>02</span>
-            <h3>Build</h3>
-            <p>
-              They work with tools, kits, circuits, sensors, and code to turn
-              ideas into working prototypes.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.3}>
-          <div className="story-card">
-            <span>03</span>
-            <h3>Compete</h3>
-            <p>
-              Students test their skills in robotics competitions, innovation
-              challenges, RC racing, and STEM showcases.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.4}>
-          <div className="story-card">
-            <span>04</span>
-            <h3>Lead</h3>
-            <p>
-              They grow into confident young innovators ready to solve problems
-              with technology.
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+function ContactCard({ icon, title, text }) {
+  return (
+    <div className="contact-card">
+      {icon}
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
   );
 }
 
