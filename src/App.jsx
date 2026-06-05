@@ -20,6 +20,8 @@ import {
   ShieldCheck,
   Wrench,
   Target,
+  Car,
+  CircuitBoard,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -27,13 +29,21 @@ import "./App.css";
 
 import logo from "./assets/futrix-logo.jpeg";
 import heroImage from "./assets/robot-arm-hero.png";
+
 import studentsBuilding from "./assets/students-building.png";
+import studentRcBuild from "./assets/student-rc-build.png";
+import studentSpiderBuild from "./assets/student-spider-build.png";
+
 import ftcRobot from "./assets/ftc-robot.png";
 import ftcRobotArm from "./assets/ftc-robot-arm.png";
-import heroRacing from "./assets/hero-racing.png";
+import spiderRobot from "./assets/spider-robot.png";
+import rcRacingMain from "./assets/rc-racing-main.png";
+import rcRacingRear from "./assets/rc-racing-rear.png";
 import battleBot from "./assets/battle-bot.png";
 import surveillanceRobot from "./assets/surveillance-robot.png";
 import robotChassis from "./assets/robot-chasis.jpeg";
+import heroRacing from "./assets/hero-racing.png";
+
 import winners from "./assets/winners.jpeg";
 import teamPhoto from "./assets/team-photo.jpeg";
 
@@ -44,11 +54,11 @@ function App() {
     ["Home", "home"],
     ["About", "about"],
     ["Programs", "programs"],
+    ["Products", "products"],
     ["Competitions", "competitions"],
     ["Innovation Lab", "innovation"],
     ["Gallery", "gallery"],
     ["Partnerships", "partnerships"],
-    ["News", "news"],
     ["Contact", "contact"],
   ];
 
@@ -56,6 +66,23 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setOpen(false);
   };
+
+  const galleryImages = [
+    [studentsBuilding, "Students Building Robots"],
+    [studentRcBuild, "RC Racing Build Session"],
+    [studentSpiderBuild, "Spider Robot Workshop"],
+    [teamPhoto, "National Competition Team"],
+    [winners, "Award Winning Students"],
+    [ftcRobot, "FTC Competition Robot"],
+    [ftcRobotArm, "FTC Robot Arm System"],
+    [rcRacingMain, "STEM RC Racing Car"],
+    [rcRacingRear, "RC Racing Rear View"],
+    [spiderRobot, "Quadrupedal Spider Robot"],
+    [battleBot, "Battle Bot"],
+    [surveillanceRobot, "Surveillance Robot"],
+    [robotChassis, "Mecanum Chassis Platform"],
+    [heroRacing, "RC Car Engineering"],
+  ];
 
   return (
     <div className="site">
@@ -86,7 +113,7 @@ function App() {
 
       <section className="hero" id="home">
         <div className="hero-bg">
-          <img src={heroImage} alt="Futrix robotics arm" />
+          <img src={heroImage} alt="Futrix robot arm" />
         </div>
 
         <div className="hero-overlay"></div>
@@ -152,21 +179,10 @@ function App() {
         </Reveal>
 
         <div className="story-grid">
-          <Reveal delay={0.1}>
-            <StoryCard number="2018" title="UNESCO ICT Winner" text="Students trained through the Futrix journey began gaining recognition in national technology competitions." />
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <StoryCard number="2019" title="FME ICT Week Champion" text="Futrix students competed across computer assembly, Scratch programming, web design, and robot games." />
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <StoryCard number="2022" title="FTC & FLL Awards" text="The team expanded into national robotics competitions, building stronger engineering and innovation capacity." />
-          </Reveal>
-
-          <Reveal delay={0.4}>
-            <StoryCard number="2026" title="Global Stage" text="Futrix-trained teams earned international recognition and prepared to represent Nigeria globally." />
-          </Reveal>
+          <StoryCard number="01" title="Learn" text="Students discover robotics, coding, AI, electronics, and engineering through practical learning." />
+          <StoryCard number="02" title="Build" text="They assemble robots, design systems, test mechanisms, and improve real prototypes." />
+          <StoryCard number="03" title="Compete" text="Teams take part in robotics challenges, STEM racing, FTC, FLL, and national competitions." />
+          <StoryCard number="04" title="Win" text="Futrix students build confidence, win awards, and become future-ready innovators." />
         </div>
       </section>
 
@@ -196,8 +212,9 @@ function App() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="image-frame">
+            <div className="image-frame stacked-images">
               <img src={studentsBuilding} alt="Students building robot" />
+              <img src={teamPhoto} alt="Futrix competition team" />
             </div>
           </Reveal>
         </div>
@@ -215,14 +232,35 @@ function App() {
         </Reveal>
 
         <div className="program-grid image-programs">
-          <ImageProgram image={ftcRobot} icon={<Bot />} title="STEM Robotics for Schools" text="Primary, secondary, private, and weekend robotics programs." />
+          <ImageProgram image={studentRcBuild} icon={<Car />} title="STEM RC Racing" text="Students design, build, tune, code, test, and race smart RC vehicles." />
+          <ImageProgram image={studentSpiderBuild} icon={<Bot />} title="Robotics Workshops" text="Hands-on classes where students assemble robots and understand real engineering." />
           <ImageProgram image={ftcRobotArm} icon={<Cpu />} title="FTC Robotics Engineering" text="Competition-ready mechanical design, sensors, lift systems, and control." />
-          <ImageProgram image={robotChassis} icon={<Code />} title="Coding, AI & Automation" text="Coding fundamentals, AI learning, IoT, and digital technology skills." />
-          <ImageProgram image={surveillanceRobot} icon={<BrainCircuit />} title="Innovation & R&D" text="Students explore smart systems, surveillance robotics, and applied engineering." />
+          <ImageProgram image={surveillanceRobot} icon={<BrainCircuit />} title="AI & Smart Robotics" text="Students explore smart systems, automation, surveillance robotics, and applied AI." />
         </div>
       </section>
 
-      <section id="competitions" className="section competitions-section">
+      <section id="products" className="section products-section">
+        <Reveal>
+          <p className="section-kicker">Robotics Showcase</p>
+          <h2>Robots, Systems and Engineering Projects</h2>
+          <p>
+            Futrix projects cover competition robotics, racing platforms,
+            autonomous systems, surveillance robots, battle bots, and mechanical
+            engineering prototypes.
+          </p>
+        </Reveal>
+
+        <div className="products-grid">
+          <ProductCard image={rcRacingMain} icon={<Car />} title="STEM RC Racing Car" text="A racing platform for teaching design, coding, testing, optimization, and competition." />
+          <ProductCard image={spiderRobot} icon={<Bot />} title="Quadrupedal Spider Robot" text="A four-leg robot designed for exploration, adaptability, and intelligent movement." />
+          <ProductCard image={surveillanceRobot} icon={<ShieldCheck />} title="Futrix S1 Surveillance Robot" text="A smart robotic platform for detection, analysis, and security-focused applications." />
+          <ProductCard image={battleBot} icon={<Target />} title="Battle Bot" text="A durable combat robot designed for strength, impact, control, and competitive robotics." />
+          <ProductCard image={ftcRobot} icon={<CircuitBoard />} title="FTC Competition Robot" text="A competition-ready robot with lift systems, mecanum drive, and engineering precision." />
+          <ProductCard image={robotChassis} icon={<Wrench />} title="Mecanum Chassis Platform" text="A mobile robotics base for movement, drivetrain, electronics, and control experiments." />
+        </div>
+      </section>
+
+      <section id="competitions" className="section dark competitions-section">
         <Reveal>
           <p className="section-kicker">Build. Race. Compete. Win.</p>
           <h2>Robotics Competitions & STEM Challenges</h2>
@@ -234,12 +272,14 @@ function App() {
         </Reveal>
 
         <div className="competition-showcase">
-          <ShowcaseCard image={heroRacing} title="STEM RC Racing" text="Students design, build, tune, code, test, race, and optimize RC robots for performance." />
+          <ShowcaseCard image={rcRacingRear} title="STEM RC Racing" text="Students learn speed, control, calibration, teamwork, and optimization through racing." />
+          <ShowcaseCard image={heroRacing} title="RC Car Engineering" text="Students build racing robots from parts, tune motors, test chassis, and improve performance." />
           <ShowcaseCard image={battleBot} title="Battle-Bot Engineering" text="Built for strength, strategy, control, durability, and competitive engineering." />
+          <ShowcaseCard image={ftcRobotArm} title="FTC Ready Systems" text="Advanced robotics training focused on lift systems, drivetrain, control, and competition design." />
         </div>
       </section>
 
-      <section id="innovation" className="section dark">
+      <section id="innovation" className="section innovation-section">
         <Reveal>
           <p className="section-kicker">Innovation Lab</p>
           <h2>Where Ideas Become Working Robots</h2>
@@ -263,8 +303,33 @@ function App() {
           </div>
 
           <div className="lab-images">
-            <img src={ftcRobotArm} alt="FTC robot arm" />
-            <img src={surveillanceRobot} alt="Futrix surveillance robot" />
+            <img src={studentSpiderBuild} alt="Student building spider robot" />
+            <img src={spiderRobot} alt="Futrix spider robot" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section dark achievements-section">
+        <Reveal>
+          <p className="section-kicker">Achievements</p>
+          <h2>Real Students. Real Awards. Real Impact.</h2>
+        </Reveal>
+
+        <div className="achievement-grid">
+          <div className="achievement-card">
+            <img src={winners} alt="Futrix winners" />
+            <div>
+              <h3>Award Winning Students</h3>
+              <p>Futrix students have represented their schools and communities in robotics and STEM competitions.</p>
+            </div>
+          </div>
+
+          <div className="achievement-card">
+            <img src={teamPhoto} alt="Futrix team" />
+            <div>
+              <h3>Competition Team Success</h3>
+              <p>Our students work as teams, build confidence, and develop the discipline needed for real innovation.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -272,16 +337,13 @@ function App() {
       <section id="gallery" className="section">
         <Reveal>
           <p className="section-kicker">Gallery</p>
-          <h2>Real Projects. Real Students. Real Impact.</h2>
+          <h2>Every Picture Tells the Futrix Story</h2>
         </Reveal>
 
-        <div className="real-gallery">
-          <GalleryItem image={studentsBuilding} title="Workshop Sessions" />
-          <GalleryItem image={teamPhoto} title="National Competitions" />
-          <GalleryItem image={winners} title="Student Winners" />
-          <GalleryItem image={ftcRobot} title="FTC Robotics" />
-          <GalleryItem image={battleBot} title="Battle Bots" />
-          <GalleryItem image={surveillanceRobot} title="Product Innovation" />
+        <div className="real-gallery masonry-gallery">
+          {galleryImages.map(([image, title]) => (
+            <GalleryItem key={title} image={image} title={title} />
+          ))}
         </div>
       </section>
 
@@ -302,24 +364,6 @@ function App() {
           <div><Users /> NGOs</div>
           <div><Trophy /> Sponsors</div>
           <div><BrainCircuit /> Innovation Partners</div>
-        </div>
-      </section>
-
-      <section id="news" className="section">
-        <Reveal>
-          <p className="section-kicker">News & Events</p>
-          <h2>Latest Updates From Futrix Robotics</h2>
-        </Reveal>
-
-        <div className="news-card">
-          <Newspaper size={44} />
-          <div>
-            <h3>Competition updates, workshops, student achievements, and training announcements will appear here.</h3>
-            <p>
-              This section can later become a full news page with articles,
-              event updates, and media coverage.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -385,11 +429,13 @@ function Reveal({ children, delay = 0 }) {
 
 function StoryCard({ number, title, text }) {
   return (
-    <div className="story-card">
-      <span>{number}</span>
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </div>
+    <Reveal>
+      <div className="story-card">
+        <span>{number}</span>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+    </Reveal>
   );
 }
 
@@ -414,26 +460,45 @@ function InfoCard({ icon, title, text }) {
 
 function ImageProgram({ image, icon, title, text }) {
   return (
-    <div className="image-program-card">
-      <img src={image} alt={title} />
-      <div>
-        <div className="program-icon">{icon}</div>
-        <h3>{title}</h3>
-        <p>{text}</p>
+    <Reveal>
+      <div className="image-program-card">
+        <img src={image} alt={title} />
+        <div>
+          <div className="program-icon">{icon}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </div>
       </div>
-    </div>
+    </Reveal>
+  );
+}
+
+function ProductCard({ image, icon, title, text }) {
+  return (
+    <Reveal>
+      <div className="product-card">
+        <img src={image} alt={title} />
+        <div className="product-content">
+          <div className="program-icon">{icon}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </div>
+      </div>
+    </Reveal>
   );
 }
 
 function ShowcaseCard({ image, title, text }) {
   return (
-    <div className="showcase-card">
-      <img src={image} alt={title} />
-      <div>
-        <h3>{title}</h3>
-        <p>{text}</p>
+    <Reveal>
+      <div className="showcase-card">
+        <img src={image} alt={title} />
+        <div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </div>
       </div>
-    </div>
+    </Reveal>
   );
 }
 
