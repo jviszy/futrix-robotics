@@ -1,7 +1,6 @@
 import {
   ArrowLeft,
   Banknote,
-  Mail,
   Phone,
   Upload,
   MapPin,
