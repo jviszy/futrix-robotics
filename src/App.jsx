@@ -15,13 +15,15 @@ import {
   BrainCircuit,
   GraduationCap,
   Handshake,
-  Newspaper,
   Globe2,
   ShieldCheck,
   Wrench,
   Target,
   Car,
   CircuitBoard,
+  Palette,
+  FileUp,
+  Monitor,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -54,6 +56,7 @@ function App() {
     ["Home", "home"],
     ["About", "about"],
     ["Programs", "programs"],
+    ["Bootcamp", "bootcamp"],
     ["Products", "products"],
     ["Competitions", "competitions"],
     ["Innovation Lab", "innovation"],
@@ -141,9 +144,14 @@ function App() {
             </p>
 
             <div className="hero-buttons">
-              <button onClick={() => scrollToSection("programs")}>
+              <a
+                href="/bootcamp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-register-btn"
+              >
                 Enroll a Student <ArrowRight size={18} />
-              </button>
+              </a>
 
               <button onClick={() => scrollToSection("partnerships")} className="outline">
                 Partner With Us
@@ -236,6 +244,95 @@ function App() {
           <ImageProgram image={studentSpiderBuild} icon={<Bot />} title="Robotics Workshops" text="Hands-on classes where students assemble robots and understand real engineering." />
           <ImageProgram image={ftcRobotArm} icon={<Cpu />} title="FTC Robotics Engineering" text="Competition-ready mechanical design, sensors, lift systems, and control." />
           <ImageProgram image={surveillanceRobot} icon={<BrainCircuit />} title="AI & Smart Robotics" text="Students explore smart systems, automation, surveillance robotics, and applied AI." />
+        </div>
+      </section>
+
+      <section id="bootcamp" className="section bootcamp-section">
+        <Reveal>
+          <p className="section-kicker">Holiday Bootcamp</p>
+          <h2>Technology, Coding & Creative Skills Bootcamp</h2>
+          <p>
+            Practical bootcamps for kids and teenagers to learn coding, robotics,
+            animation, digital literacy, AI, app development, and productivity skills
+            through real projects.
+          </p>
+        </Reveal>
+
+        <div className="bootcamp-grid">
+          <BootcampCard
+            icon={<Code />}
+            title="Scratch Programming"
+            age="Ages 7–14"
+            skills={["Coding fundamentals", "Game development", "Interactive stories", "Animations", "Problem-solving"]}
+            projects={["Maze game", "Quiz game", "Animated story", "Space shooter game"]}
+          />
+
+          <BootcampCard
+            icon={<Monitor />}
+            title="MIT App Inventor"
+            age="Ages 10–16"
+            skills={["Mobile app development", "User interface design", "Logical thinking"]}
+            projects={["Calculator app", "Quiz app", "School timetable app", "Drawing app"]}
+          />
+
+          <BootcampCard
+            icon={<Cpu />}
+            title="Robotics & Arduino"
+            age="Ages 10–17"
+            skills={["Electronics", "Sensors and actuators", "Physical computing"]}
+            projects={["Traffic light system", "Smart street light", "Digital thermometer", "Obstacle detector"]}
+          />
+
+          <BootcampCard
+            icon={<BrainCircuit />}
+            title="Introduction to Artificial Intelligence"
+            age="Kids & Teens"
+            skills={["What AI is", "Machine learning basics", "AI tools for creativity", "Responsible AI use"]}
+            projects={["AI-generated stories", "AI-assisted artwork", "Chatbot creation"]}
+          />
+
+          <BootcampCard
+            icon={<Palette />}
+            title="2D Animation Bootcamp"
+            age="Kids & Teens"
+            skills={["Character design", "Storyboarding", "Animation principles", "Motion graphics"]}
+            projects={["Animated short movie"]}
+          />
+
+          <BootcampCard
+            icon={<Sparkles />}
+            title="Whiteboard Animation"
+            age="Kids & Teens"
+            skills={["Script writing", "Visual storytelling", "Educational content creation"]}
+            projects={["1-minute explainer video", "Science lesson animation"]}
+          />
+
+          <BootcampCard
+            icon={<FileUp />}
+            title="Microsoft Office for Kids"
+            age="Kids & Teens"
+            skills={["Word processing", "Presentations", "Spreadsheets"]}
+            projects={["School report", "Presentation slides", "Budget tracker"]}
+          />
+
+          <BootcampCard
+            icon={<ShieldCheck />}
+            title="Internet & Digital Literacy"
+            age="Kids & Teens"
+            skills={["Online safety", "Research skills", "Email etiquette", "Cybersecurity basics"]}
+            projects={["Safe internet guide", "Research presentation"]}
+          />
+        </div>
+
+        <div className="bootcamp-cta">
+          <a
+            href="/bootcamp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bootcamp-btn"
+          >
+            View Bootcamp Details & Register
+          </a>
         </div>
       </section>
 
@@ -376,7 +473,15 @@ function App() {
           </p>
 
           <div className="hero-buttons center">
-            <button onClick={() => scrollToSection("contact")}>Register a Student</button>
+            <a
+              href="/bootcamp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-register-btn"
+            >
+              Register a Student
+            </a>
+
             <button onClick={() => scrollToSection("contact")} className="outline">Register Your School</button>
             <button onClick={() => scrollToSection("partnerships")} className="outline">Become a Partner</button>
           </div>
@@ -468,6 +573,32 @@ function ImageProgram({ image, icon, title, text }) {
           <h3>{title}</h3>
           <p>{text}</p>
         </div>
+      </div>
+    </Reveal>
+  );
+}
+
+function BootcampCard({ icon, title, age, skills, projects }) {
+  return (
+    <Reveal>
+      <div className="bootcamp-card">
+        <div className="program-icon">{icon}</div>
+        <span>{age}</span>
+        <h3>{title}</h3>
+
+        <h4>Kids learn:</h4>
+        <ul>
+          {skills.map((skill) => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+
+        <h4>Projects:</h4>
+        <ul>
+          {projects.map((project) => (
+            <li key={project}>{project}</li>
+          ))}
+        </ul>
       </div>
     </Reveal>
   );
